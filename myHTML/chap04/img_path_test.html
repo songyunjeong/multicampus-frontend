@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>img_path_test.html</title>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <h3>절대 경로 지정 방식</h3>
+    <img src="/chap04/images/salad.jpg" alt="절대 경로" width="320" />
+
+    <hr />
+
+    <h3>상대 경로 지정 방식</h3>
+    <img src="./images/salad.jpg" alt="상대 경로" width="50%" />
+    <!-- ./ 생략 가능하지만 권장하지 않는다 -->
+
+    <hr />
+
+    <h3>외부 서버 자원 사용</h3>
+    <img src="http://127.0.0.1:5500/chap04/images/salad.jpg" alt="외부 서버" />
+  </body>
+</html>
