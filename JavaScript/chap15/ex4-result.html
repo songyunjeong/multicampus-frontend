@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      /*
+          사용자에게 년도를 입력으로 받아 윤년 여부를 판단하여 출력하는 코드를 작성하세요.
+          단, 삼항연산자를 사용합니다.
+      */
+
+      var result;
+      var year = prompt("년도를 입력하세요.", 2023);
+      year = Number(year);
+
+      year != 0
+        ? (year % 4 == 0 && year % 100 != 0) || year % 400 == 0
+          ? (result = "윤년")
+          : (result = "평년")
+        : alert("올바른 년도를 입력하세요.");
+
+      Boolean(result)
+        ? alert("입력하신 " + year + "년도는 " + result + "입니다.")
+        : null;
+    </script>
+  </head>
+  <body></body>
+</html>
