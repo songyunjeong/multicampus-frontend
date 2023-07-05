@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var arr = ["사과", "바나나", "딸기"];
+      arr[3] = ["배"];
+      console.log(arr);
+
+      // 삭제
+      arr.splice(1, 1);
+      console.log(arr);
+
+      // 보통 배열은 처음에 크기를 정하고 바꿀 수 없는데 자바스크립트에서의 배열은 그렇지 않다.
+      // 배열 크기가 동적으로 늘리거나 줄일 수 있다.
+    </script>
+  </head>
+  <body></body>
+</html>

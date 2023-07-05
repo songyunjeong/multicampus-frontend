@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // event property: 'on' + eventName  =>  발생한 이벤트와 이벤트 처리를 위한 핸들러를 연결
+      // event handler: function() {...}
+      window.onload = function () {
+        document.body.innerHTML = "<h1>Hello, World!</h1>";
+      };
+
+      document.body.innerHTML = "<h1>Hello, World!</h1>"; // 아직 body 태그가 읽히지 않았기 때문에 나타나지 않음.
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var arr = ["사과", "바나나", "딸기", "배", "포도", "복숭아"];
+      var list = "<ul>";
+
+      for (var i in arr) {
+        list += `<li>${arr[i]}</li>`;
+      }
+
+      list += "</ul>";
+
+      window.onload = function () {
+        document.body.innerHTML += list;
+      };
+    </script>
+  </head>
+  <body>
+    <h1>내가 좋아하는 과일들</h1>
+    <hr />
+  </body>
+</html>

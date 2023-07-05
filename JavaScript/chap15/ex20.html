@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      /*
+         사용자에게 날짜를 입력받아 입력받은 날짜의 요일을 반환하는 코드를 작성하세요.
+      */
+
+      var date = prompt("날짜를 입력하세요.", "2023 7 12");
+      date = date.split(" ");
+      var year,
+        month,
+        day = 0;
+      year = Number(date[0]);
+      month = Number(date[1]);
+      day = Number(date[2]);
+      var leap = false;
+      var monthLastDays = [-1, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+      var week = ["일", "월", "화", "수", "목", "금", "토"];
+      var totalDays = 0;
+
+      (year % 4 == 0 && year % 100 != 0) || year % 400 == 0
+        ? (leap = true)
+        : (leap = false);
+
+      for (var i = 1; i < year; i++) {
+        leap ? (totalDays += 366) : (totalDays += 365);
+      }
+
+      leap ? (monthLastDays[2] = 29) : 28;
+
+      for (var i = 1; i < month; i++) {
+        totalDays += monthLastDays[i];
+      }
+
+      totalDays += day;
+
+      document.write(
+        `<h2>입력하신 ${year}년 ${month}월 ${day}일은 ${
+          week[totalDays % 7]
+        }요일 입니다.</h2>`
+      );
+    </script>
+  </head>
+  <body></body>
+</html>
