@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      /*
+        사용자에게 날짜를 입력받아 해당 날짜의 요일을 반환하는 코드를 작성하세요.
+        단, 함수 기반으로 코드를 작성합니다.
+      */
+
+      var date = prompt("날짜를 입력하세요", "2023 7 6");
+      date = date.split(" ");
+
+      function weekCounter(year, month, day) {
+        var monthLastDays = [
+          -1, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31,
+        ];
+        var week = ["일", "월", "화", "수", "목", "금", "토"];
+        var totalDays = 0;
+        var leapYear = false;
+
+        if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+          leapYear = true;
+        }
+
+        for (var i = 1; i < year; i++) {
+          leapYear ? (totalDays += 366) : (totalDays += 365);
+        }
+
+        leapYear && (monthLastDays[2] = 29);
+
+        for (var i = 1; i < month; i++) {
+          totalDays += monthLastDays[i];
+        }
+
+        totalDays += day;
+
+        document.write(
+          `입력하신 ${year}년 ${month}월 ${day}일은 ${
+            week[totalDays % 7]
+          }요일 입니다.`
+        );
+      }
+
+      weekCounter(Number(date[0]), Number(date[1]), Number(date[2]));
+    </script>
+  </head>
+  <body></body>
+</html>

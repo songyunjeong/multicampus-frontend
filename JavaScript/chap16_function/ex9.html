@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      /*
+          두 개의 숫자, 문자열, 논리값을 입력으로 받아 더 큰 값을 반환하는 max 함수를 만들고 확인하는
+          코드를 작성하세요.
+      */
+
+      function max(val1, val2) {
+        var result;
+
+        if (
+          typeof val1 === "number" ||
+          typeof val1 === "string" ||
+          (typeof val1 === "boolean" && typeof val1 === typeof val2)
+        ) {
+          result = val1 >= val2 ? val1 : val2;
+        } else {
+          result = -1;
+        }
+
+        return result;
+      }
+
+      alert(max(15, 20));
+      alert(max("abcd", "우리나라"));
+      alert(max(true, false));
+      alert(max(true, 1234));
+    </script>
+  </head>
+  <body></body>
+</html>

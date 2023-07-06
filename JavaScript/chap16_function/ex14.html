@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let num1 = 10;
+
+      function func() {
+        let num2 = 20;
+
+        if (true) {
+          let num3 = 30;
+          alert("num3: " + num3); // 1. num3: 30  =>  block scope in function
+        }
+
+        alert("num2: " + num2); // 2. num2: 20  =>  local variable
+        // alert("num3: " + num3); // 3. x (error)
+      }
+
+      func();
+
+      if (true) {
+        let num4 = 40;
+        alert("num4: " + num4); // 4. num4: 40  =>  block scope in global
+      }
+
+      alert("num1: " + num1); // 5. num1: 10  =>  global variable
+      // alert("num4: " + num4); // 6. x (error)
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function add(num1, num2, num3) {
+        return num1 + num2 + num3;
+      }
+
+      alert(add(10, 20, 30));
+      alert(add(10, 20, 30, 40)); // 마지막 값은 무시함
+      alert(add(10, 20)); // NaN: num3는 초기화가 안됨  =>  undefined
+      alert(add(10)); // NaN: num2, num3은 초기화가 안됨  =>  undefined
+      alert(add()); // NaN: undefined + undefined + undefined
+
+      // alert(10 + undefined);
+    </script>
+  </head>
+  <body></body>
+</html>

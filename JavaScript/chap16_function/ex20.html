@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      /*
+      자바스크립트는 함수도 객체다.
+      함수는 참조 자료형이다.
+      함수가 속성과 메서드를 가질 수 있다.
+      속성 => arguments: 배열 (숨김 속성)
+      */
+
+      function add() {
+        alert("입력 값의 수: " + arguments.length);
+
+        var result = 0;
+
+        for (var i = 0; i < arguments.length; i++) {
+          result += arguments[i];
+        }
+
+        return result;
+      }
+
+      alert(add(1, 2, 3));
+      alert(add(1, 2, 3, 4));
+      alert(add(1, 2, 3, 4, 5));
+      alert(add(1, 2, 3, 4, 5, 6));
+      // Java의 오버로딩과 같다.
+    </script>
+  </head>
+  <body></body>
+</html>
