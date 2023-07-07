@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var name = "손흥민";
+
+      var person = {
+        name: "harper",
+        age: 26,
+        gender: "female",
+        eat: function () {
+          alert(this.name + " 밥 먹자~");
+        },
+      };
+
+      person.eat();
+
+      person.eat = "밥 먹었어?"; // eat은 속성이다. (자바스크립트 객체는 속성 집합이다.)
+      alert(person.eat);
+
+      // 자바스크립트는 동적 타입 언어이고, 객체의 속성 역시 모든 종류의 값을 저장할 수 있다.
+    </script>
+  </head>
+  <body></body>
+</html>

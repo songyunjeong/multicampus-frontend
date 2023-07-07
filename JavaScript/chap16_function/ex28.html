@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // body 내용으로 날짜와 시간 값을 1초 간격으로 10초간 계속해서 출력하는 코드를 작성하세요.
+      window.onload = function () {
+        var printDate = setInterval(function () {
+          var timeArea = document.querySelector("#time_area");
+          timeArea.innerHTML = `<h3>${new Date().toLocaleString()}</h3>`;
+        }, 1000);
+
+        setTimeout(function () {
+          clearInterval(printDate);
+        }, 10000);
+      };
+    </script>
+  </head>
+  <body>
+    <h1>현재 날짜와 시간</h1>
+    <hr />
+    <h4 id="time_area"></h4>
+  </body>
+</html>

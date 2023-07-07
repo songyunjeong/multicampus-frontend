@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var person = {
+        name: "harper",
+        age: 26,
+        gender: "female",
+        eat: function () {
+          // 메서드: 함수를 가진 속성
+          alert(this.name + " 밥 먹자~~");
+        },
+      };
+
+      /*
+      person 객체의 각 속성이 메서드가 아니면 속성명과 값을 출력하고,
+      메서드이면 호출하여 실행하는 코드를 작성하세요.
+      */
+
+      for (var key in person) {
+        if (typeof person[key] === "function") {
+          person[key]();
+        } else {
+          alert(`속성명: ${key}, 속성값: ${person[key]}`);
+        }
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -15,14 +15,13 @@
 
         do {
           lottoNum[0] = parseInt(Math.random() * 45) + 1;
-        } while (lottoNum[i] != lottoNum[i]);
+        } while (lottoNum[i]);
         {
           for (var i = 0; i < lottoNum.length; i++) {
             lottoNum[i] = parseInt(Math.random() * 45) + 1;
+            lottoNum.sort();
           }
         }
-
-        lottoNum.sort();
 
         return lottoNum;
       }

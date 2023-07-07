@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 객체 반환 함수
+      function getPerson(name, age, gender) {
+        var person = {
+          name: name,
+          age: age,
+          gender: gender,
+        };
+
+        return person;
+      }
+
+      var person1 = getPerson("손흥민", 31, "male");
+      var person2 = getPerson("김연경", 34, "female");
+
+      alert(person1.name + " : " + person1.age + " : " + person1.gender);
+      alert(person2.name + " : " + person2.age + " : " + person2.gender);
+    </script>
+  </head>
+  <body></body>
+</html>

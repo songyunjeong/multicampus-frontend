@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      /*
+         [학생 성적 관리 프로그램]
+         5명의 학생들의 성적 정보를 입력받아 1등인 학생의 학번, 이름, 국어, 영어, 수학, 과학
+         시험 점수와 총점 그리고 평균을 출력하는 코드를 작성하세요.
+         단, 객체지향적으로 코드를 작성합니다.
+      */
+
+      function getStudent(num, name, kor, eng, mat, sie) {
+        var student = {
+          num: num,
+          name: name,
+          kor: kor,
+          eng: eng,
+          mat: mat,
+          sie: sie,
+        };
+
+        return student;
+      }
+
+      var student = [];
+      for (var i = 0; i < 5; i++) {
+        student[i] = getStudent(201561321, "harper", 100, 100, 100, 100);
+        student[1] = getStudent(201561322, "kim", 100, 100, 100, 100);
+        student[2] = getStudent(201561323, "lee", 100, 100, 100, 100);
+        student[3] = getStudent(201561324, "park", 100, 100, 100, 100);
+        student[4] = getStudent(201561325, "jung", 100, 100, 100, 100);
+      }
+
+      for (var i = 0; i < 5; i++) {
+        document.write(`
+        <h3>${i + 1}번째 학생</h3>
+        학번: ${student[i].num}<br />
+        이름: ${student[i].name}<br />
+        국어성적: ${student[i].kor} <br />
+        영어성적: ${student[i].eng}<br />
+        수학성적: ${student[i].mat}<br />
+        과학성적: ${student[i].sie}<br /><br />
+        `);
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

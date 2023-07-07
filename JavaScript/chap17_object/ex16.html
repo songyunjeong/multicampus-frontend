@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      /*
+        사용자에게 입력받은 날짜의 요일을 계산하여 출력하는 코드를 작성하세요.
+        단, 객체지향적으로 코드를 작성하세요.
+      */
+
+      var ymd = prompt("날짜를 입력하세요", "2023 7 7");
+      ymd = ymd.split(" ");
+
+      var myCalendar = {
+        year: Number(ymd[0]),
+        month: Number(ymd[1]),
+        day: Number(ymd[2]),
+
+        isLeapYear: function (year) {
+          var result = false;
+
+          if (arguments.length === 0) {
+            year = this.year;
+          }
+
+          if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+            result = true;
+          }
+
+          return result;
+        },
+
+        getMonthLastDay: function (month) {
+          var monthLastDays = [
+            -1, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31,
+          ];
+
+          if (this.isLeapYear()) {
+            monthLastDays[2] = 29;
+          }
+
+          return monthLastDays[month];
+        },
+
+        getTotalDay: function () {
+          var totalDays = 0;
+
+          for (var i = 1; i < this.year; i++) {
+            this.isLeapYear() ? (totalDays += 366) : (totalDays += 365);
+          }
+
+          for (var i = 1; i < this.month; i++) {
+            totalDays += this.getMonthLastDay(i);
+          }
+
+          totalDays += this.day;
+
+          return totalDays;
+        },
+
+        getDayOfWeek: function () {
+          var dayOfWeeks = ["일", "월", "화", "수", "목", "금", "토"];
+
+          return dayOfWeeks[this.getTotalDay() % 7];
+        },
+      };
+
+      document.write(
+        `입력하신 ${myCalendar.year}년 ${myCalendar.month}월 ${
+          myCalendar.day
+        }일은 ${myCalendar.getDayOfWeek()}요일 입니다.`
+      );
+    </script>
+  </head>
+  <body></body>
+</html>
