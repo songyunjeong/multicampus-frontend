@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var firstDay = new Date("1996-07-12").getTime();
+      var now = new Date().getTime();
+
+      // 오늘은 그와 만난지 몇 일째인지 계산하는 법
+      var interval = now - firstDay;
+      alert(
+        "우리 만난 지 " +
+          parseInt(interval / (1000 * 60 * 60 * 24) + 1) +
+          "일째"
+      ); // 하루로 나눔
+    </script>
+  </head>
+  <body></body>
+</html>

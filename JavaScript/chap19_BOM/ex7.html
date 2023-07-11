@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      if (window.opener) {
+        var favoriteFruit = prompt("좋아하는 과일을 입력하세요.", "사과");
+
+        window.opener.document.body.innerHTML += `<h4>좋아하는 과일은 ${favoriteFruit} 입니다.</h4>`;
+
+        window.close();
+      } else {
+        alert("현재 페이지는 독립적으로 실행할 수 없습니다.");
+      }
+    </script>
+  </head>
+  <body>
+    <h1>ex7.html</h1>
+  </body>
+</html>

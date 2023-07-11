@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var windowObj = " ";
+
+      for (var key in window) {
+        windowObj += "속성명: " + key + ", 속성 값: " + window[key] + "<br />";
+      }
+
+      window.onload = function () {
+        document.body.innerHTML += windowObj;
+      };
+    </script>
+  </head>
+  <body>
+    <h1>window 객체의 속성과 값</h1>
+    <hr />
+  </body>
+</html>

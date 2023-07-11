@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var currentDate = new Date();
+      var dayOfWeek = ["일", "월", "화", "수", "목", "금", "토"];
+
+      var msg = `년: ${currentDate.getFullYear()}
+월: ${currentDate.getMonth() + 1}
+일: ${currentDate.getDate()}
+시: ${currentDate.getHours()}
+분: ${currentDate.getMinutes()}
+초: ${currentDate.getSeconds()}
+요일: ${dayOfWeek[currentDate.getDay()]}`;
+      // getMonth: 0부터 시작하는 월이 기본임. +1 해줘야 함.
+
+      alert(msg);
+    </script>
+  </head>
+  <body></body>
+</html>

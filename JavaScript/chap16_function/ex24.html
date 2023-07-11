@@ -19,7 +19,7 @@
         {
           for (var i = 0; i < lottoNum.length; i++) {
             lottoNum[i] = parseInt(Math.random() * 45) + 1;
-            lottoNum.sort();
+            lottoNum.sort((a, b) => a - b);
           }
         }
 
