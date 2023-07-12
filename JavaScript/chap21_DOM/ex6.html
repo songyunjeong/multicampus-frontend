@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      /*
+        사용자로부터 날짜를 입력받아 요일 값을 출력하는 코드를 작성하세요.
+        단, prompt() 함수를 사용할 수 없고, 화면을 직접 구현하여 코드를 작성합니다.
+      */
+
+      function weekCounter(year, month, day) {
+        var week = ["일", "월", "화", "수", "목", "금", "토"];
+        var monthLastDays = [
+          -1, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31,
+        ];
+        var leapYear = false;
+        var totalDays = 0;
+        var result = document.querySelector("#result");
+
+        (year % 4 == 0 && year % 100 == 0) || year % 400 == 0
+          ? (leapYear = true)
+          : (leapYear = false);
+
+        for (var i = 1; i < year; i++) {
+          totalDays += leapYear ? 366 : 365;
+        }
+
+        monthLastDays[2] = leapYear ? 29 : 28;
+        for (var i = 1; i < month; i++) {
+          totalDays += monthLastDays[i];
+        }
+
+        totalDays += day;
+
+        result.innerHTML += `${week[totalDays % 7]}요일 입니다.`;
+      }
+
+      function getDate() {
+        var year = document.querySelector("#year");
+        year = Number(year.value);
+        var month = document.querySelector("#month");
+        month = Number(month.value);
+        var day = document.querySelector("#day");
+        day = Number(day.value);
+
+        weekCounter(year, month, day);
+      }
+
+      function init() {
+        var btn = document.querySelector("#btn");
+        btn.onclick = getDate;
+      }
+
+      window.onload = init;
+    </script>
+  </head>
+  <body>
+    <h3>날짜를 입력하세요.</h3>
+    <input type="text" id="year" size="4" /> 년
+    <input type="text" id="month" size="2" /> 월
+    <input type="text" id="day" size="2" /> 일
+    <br />
+    <br />
+    <button id="btn">요일 알아보기</button>
+    <h2 id="result"></h2>
+  </body>
+</html>

@@ -11,19 +11,23 @@
           로그인 요청을 loginProc.html에게 보내는 코드를 작성하세요.
       */
 
-      function handler() {
+      function loginHandler() {
         var id = document.getElementById("id");
         var pw = document.getElementById("pw");
+        var url = "loginProc2.html";
+        url += `?id=${id.value}&pw=${pw.value}`;
 
-        if (id.value && pw.value) {
-          location.href = `loginProc.html?id=${id.value}&pw=${pw.value}`;
-        }
+        id.value = "";
+        pw.value = ""; // 처리다하고 나면 초기화 해주기
+
+        location.assign(url);
+        // location.href = url;
       }
 
       function init() {
-        var btn = document.getElementById("login");
+        var loginBtn = document.getElementById("login");
 
-        btn.onclick = handler;
+        loginBtn.onclick = loginHandler;
       }
 
       window.onload = init;

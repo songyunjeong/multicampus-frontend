@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var str1 = "JavaScript Programming Language";
+      var str2 = "";
+
+      for (var i = 0; i < str1.length; i++) {
+        str2 += str1.charAt(i);
+      }
+      alert("str2: " + str2);
+
+      var idx = str1.indexOf("Pro");
+      alert("Pro position: " + idx);
+
+      var str3 = str1.substr(11, 11);
+      alert("str3: " + str3);
+
+      var str4 = str1.substr(11, 14);
+      alert("str4: " + str4);
+
+      alert(str1.toLocaleLowerCase());
+      alert(str1.charCodeAt(1));
+    </script>
+  </head>
+  <body></body>
+</html>

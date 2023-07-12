@@ -15,19 +15,65 @@
       const ID = "harper";
       const PASSWD = "6789";
 
+      // 방법(1)
+      location.search
+        .substr(1)
+        .split("&")
+        .forEach(function (e) {
+          var param = e.split("=");
+        });
+
+      // 방법(2)
+      /*
+      var param = location.search;
+      param = param.substr(1); // ?만 빼고 보여줌 (0부터 문자 1개 == ?)
+      param = param.split("&");
+
+      var param1 = param[0];
+      var param2 = param[1];
+
+      param1 = param1.split("=");
+      param2 = param2.split("=");
+
+      var message = "";
+      var result = false;
+      if (
+        param1[0] === "id" &&
+        param1[1] === ID &&
+        param2[0] === "pw" &&
+        param2[1] === PASSWD
+      ) {
+        message = `<h4>${param1[1]}님의 방문을 환영합니다.</h4>`;
+        result = true;
+      } else {
+        message = "로그인 실패했습니다. 다시 시도해주세요.";
+      }
+
       function init() {
-        if (location.search == `?id=${ID}&pw=${PASSWD}`) {
-          alert("환영합니다!");
+        if (result) {
+          document.body.innerHTML += message;
         } else {
-          alert("아이디와 비밀번호가 일치하지 않습니다.");
+          alert(message);
           location.href = "login.html";
         }
       }
 
       window.onload = init;
+      */
+
+      // 방법(3)
+      /*
+      if (location.search == `?id=${ID}&pw=${PASSWD}`) {
+        alert("환영합니다!");
+      } else {
+        alert("아이디와 비밀번호가 일치하지 않습니다.");
+        location.href = "login.html";
+      }
+      */
     </script>
   </head>
   <body>
-    <h1>로그인 확인중</h1>
+    <h1>로그인</h1>
+    <hr />
   </body>
 </html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function init() {
+        var header = document.getElementById("header");
+        alert(header.innerHTML);
+        // 스크립트는 id가 중복되었을 때, 첫번째로 나오는 것만 가짐
+      }
+
+      window.onload = init;
+    </script>
+    <style>
+      #header {
+        color: blue;
+        /* id는 값이 하나여야 함에도 불구하고 스타일은 중복 적용을 시켜준다. */
+      }
+    </style>
+  </head>
+  <body>
+    <h3 id="header">Header1</h3>
+    <h3 id="header">Header2</h3>
+    <h3 id="header">Header3</h3>
+  </body>
+</html>

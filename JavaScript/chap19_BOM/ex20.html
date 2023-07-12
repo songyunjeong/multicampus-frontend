@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function convertHandler() {
+        var userName = document.getElementById("userName");
+        var encoding = document.getElementById("encoding");
+        var decoding = document.getElementById("decoding");
+
+        var encodeUserName = encodeURIComponent(userName.value);
+        var decodeUserName = decodeURIComponent(encodeUserName);
+
+        encoding.innerHTML += encodeUserName;
+        decoding.innerHTML += decodeUserName;
+      }
+
+      function init() {
+        var convert = document.getElementById("convert");
+        convert.onclick = convertHandler;
+      }
+
+      window.onload = init;
+    </script>
+  </head>
+  <body>
+    <h1>encoding & decoding</h1>
+    <hr />
+
+    <label for="userName">이름</label>
+    <input type="text" id="userName" />
+    <button id="convert">변환</button>
+
+    <hr />
+    <div id="encoding">인코딩:</div>
+    <div id="decoding">디코딩:</div>
+  </body>
+</html>

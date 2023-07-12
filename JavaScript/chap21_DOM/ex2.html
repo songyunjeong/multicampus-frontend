@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function init() {
+        // var headers = document.getElementsByClassName("header"); // 유사 배열 객체
+        // var headers = document.getElementsByTagName("h4");
+        var headers = document.getElementsByName("fruits");
+
+        for (var i = 0; i < headers.length; i++) {
+          // alert(headers[i].innerHTML);
+          alert(headers[i].value);
+        }
+      }
+
+      window.onload = init;
+    </script>
+  </head>
+  <body>
+    <h3 class="header">Header1</h3>
+    <h3>Header2</h3>
+    <h4 class="header">Header3</h4>
+    <h4>Header4</h4>
+
+    apple
+    <input type="radio" name="fruits" value="apple" />
+    banana
+    <input type="radio" name="fruits" value="banana" />
+  </body>
+</html>

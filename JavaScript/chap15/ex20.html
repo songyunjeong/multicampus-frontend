@@ -27,10 +27,10 @@
         : (leap = false);
 
       for (var i = 1; i < year; i++) {
-        leap ? (totalDays += 366) : (totalDays += 365);
+        totalDays += leap ? 366 : 365;
       }
 
-      leap ? (monthLastDays[2] = 29) : 28;
+      monthLastDays[2] = leap ? 29 : 28;
 
       for (var i = 1; i < month; i++) {
         totalDays += monthLastDays[i];
@@ -41,7 +41,7 @@
       document.write(
         `<h2>입력하신 ${year}년 ${month}월 ${day}일은 ${
           week[totalDays % 7]
-        }요일 입니다.</h2>`
+        }요일 입니다.${totalDays}</h2>`
       );
     </script>
   </head>

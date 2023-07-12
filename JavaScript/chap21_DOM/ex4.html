@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function init() {
+        var header1 = document.querySelector("#header");
+        alert(header1.innerHTML);
+
+        var header2 = document.querySelector(".header-2");
+        alert(header2.innerHTML);
+      }
+
+      window.onload = init;
+    </script>
+    <style>
+      #header {
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <h3 id="header">Header1</h3>
+    <h3 class="header-2">Header2</h3>
+    <h4 class="header-2">Header3</h4>
+  </body>
+</html>

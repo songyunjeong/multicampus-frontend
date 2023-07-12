@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function init() {
+        var headers = document.getElementsByTagName("h3");
+
+        // 아래 처럼 쓰면 안됨. ex2 처럼 예전 for문 써야 함.
+        // for in은 value에 접근할 수 없음
+        for (var key in headers) {
+          alert(`key: ${key}, value: ${headers[key]}`);
+        }
+      }
+
+      window.onload = init;
+    </script>
+    <style>
+      #header {
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Header1</h3>
+    <h3>Header2</h3>
+    <h3>Header3</h3>
+  </body>
+</html>
