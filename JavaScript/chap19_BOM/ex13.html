@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function handler() {
+        var target = document.getElementById("target");
+        var content = "";
+
+        content +=
+          "navigator.cookieEnabled: " + navigator.cookieEnabled + "<br />";
+        content += "navigator.appName: " + navigator.appName + "<br />";
+        content += "navigator.appCodeName: " + navigator.appCodeName + "<br />";
+        content += "navigator.platform: " + navigator.platform + "<br />";
+        content += "navigator.language: " + navigator.language + "<br />";
+        content += "navigator.appVersion: " + navigator.appVersion + "<br />";
+
+        target.innerHTML += content;
+      }
+
+      function init() {
+        var btn = document.getElementById("btn");
+        btn.onclick = handler;
+      }
+
+      window.onload = init;
+    </script>
+    <style>
+      #target {
+        border: 2px solid gray;
+        width: 400px;
+        padding-left: 20px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>navigator example</h1>
+    <hr />
+
+    <button id="btn">navigator info!</button>
+
+    <div id="target">
+      <h4>navigator info</h4>
+    </div>
+  </body>
+</html>

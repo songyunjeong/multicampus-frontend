@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // h4#length 태그의 내용으로 history 객체의 length 속성 값을 출력하는 코드를 작성
+
+      function backHandler() {
+        history.back();
+      }
+
+      function forwardHandler() {
+        history.forward();
+      }
+
+      function goHandler() {
+        var goNum = document.getElementById("goNum");
+        history.go(Number(goNum.value));
+        goNum.value = 0;
+      }
+
+      function init() {
+        var length = document.getElementById("length");
+        length.innerHTML = "length: " + history.length;
+
+        var back = document.getElementById("back");
+        back.onclick = backHandler;
+
+        var forward = document.getElementById("forward");
+        forward.onclick = forwardHandler;
+
+        var goBtn = document.getElementById("goBtn");
+        goBtn.onclick = goHandler;
+      }
+
+      window.onload = init;
+    </script>
+  </head>
+  <body>
+    <h1>history example</h1>
+    <hr />
+
+    <h4 id="length">length:</h4>
+    <hr />
+
+    <button id="back">&lt;&lt;&lt;</button>
+    <button id="forward">&gt;&gt;&gt;</button>
+    <input type="number" id="goNum" min="-99" max="99" step="1" value="0" />
+    <button id="goBtn">go</button>
+  </body>
+</html>

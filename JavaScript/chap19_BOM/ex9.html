@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var total = 0;
+
+      // 문자열에 점을 찍는 순간, 문자열 객체가 됨
+      "1 2 3 4 5".split(" ").forEach(function (value, idx) {
+        // 메서드 체이닝: 연속된 메서드 호출
+        // (for in과 같은 기능이지만) forEach는 이렇게 연속된 문장으로 사용할 수 있음
+
+        value = Number(value);
+        total += value;
+      });
+
+      alert("total: " + total);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>login.html</title>
+    <script>
+      /*
+          사용자가 아이디와 패스워드를 입력한 후 로그인 버튼을 클릭하면
+          사용자가 입력한 아이디와 패스워드를 포함한
+          로그인 요청을 loginProc.html에게 보내는 코드를 작성하세요.
+      */
+
+      function handler() {
+        var id = document.getElementById("id");
+        var pw = document.getElementById("pw");
+
+        if (id.value && pw.value) {
+          location.href = `loginProc.html?id=${id.value}&pw=${pw.value}`;
+        }
+      }
+
+      function init() {
+        var btn = document.getElementById("login");
+
+        btn.onclick = handler;
+      }
+
+      window.onload = init;
+    </script>
+  </head>
+  <body>
+    <h1>로그인</h1>
+    <hr />
+    <label for="id">아이디</label>
+    <input type="text" id="id" />
+    <label for="pw">패스워드</label>
+    <input type="password" id="pw" />
+    <button id="login">login</button>
+    <hr />
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function handler() {
+        var userName = document.getElementById("userName");
+        var age = document.getElementById("age");
+        var ageVal = Number(age.value); // string -> number
+
+        // alert(
+        //   "userName: " +
+        //     userName.value +
+        //     ", age: " +
+        //     age.value +
+        //     "\nage type: " +
+        //     typeof age.value
+        // );
+
+        alert(
+          "userName: " +
+            userName.value +
+            ", age: " +
+            ageVal +
+            "\nage type: " +
+            typeof ageVal
+        );
+      }
+
+      function init() {
+        var click = document.getElementById("btn");
+        btn.onclick = handler;
+      }
+
+      window.onload = init;
+    </script>
+  </head>
+  <body>
+    <h1>입력양식 값 읽기</h1>
+    <hr />
+
+    <label for="userName">이름</label>
+    <input type="text" id="userName" /> /
+    <label for="age">나이</label>
+    <input type="text" id="age" />
+
+    <button id="btn">click</button>
+  </body>
+</html>

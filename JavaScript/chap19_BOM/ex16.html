@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function init() {
+        var target = document.getElementById("target");
+        var content = "";
+
+        content += "location.protocol: " + location.protocol + "<br />";
+        content += "location.hostname: " + location.hostname + "<br />"; // 도메인 주소
+        content += "location.port: " + location.port + "<br />";
+        content += "location.host: " + location.host + "<br />"; // hostname + port
+        content += "location.hash: " + location.hash + "<br />";
+        content += "location.search: " + location.search + "<br />";
+        content += "location.href: " + location.href + "<br />";
+
+        target.innerHTML += content;
+      }
+
+      window.onload = init;
+    </script>
+  </head>
+  <body>
+    <h1>location example</h1>
+    <hr />
+
+    <div id="target">
+      <h4>location property</h4>
+    </div>
+  </body>
+</html>

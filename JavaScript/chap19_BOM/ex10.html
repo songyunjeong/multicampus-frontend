@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function handler() {
+        alert("버튼을 클릭했습니다!");
+      }
+
+      function init() {
+        var btn = document.getElementById("btn");
+
+        alert(btn.innerHTML);
+
+        btn.onclick = handler;
+      }
+
+      window.onload = init;
+    </script>
+  </head>
+  <body>
+    <h1>event example</h1>
+    <hr />
+
+    <button id="btn">click!</button>
+  </body>
+</html>

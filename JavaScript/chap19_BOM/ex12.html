@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 버튼을 클릭했을 때 div#target 내용으로 "버튼을 클릭했습니다!" 메시지를 출력하는 코드를 작성하세요.
+      // 새로운 클리어 버튼을 추가하여 div#target 태그의 내용을 지우는 이벤트 처리를 추가하세요.
+
+      function clickHandler() {
+        var target = document.getElementById("target");
+        target.innerHTML = "버튼을 클릭했습니다!";
+      }
+
+      function clearHandler() {
+        var target = document.getElementById("target");
+        target.innerHTML = "";
+      }
+
+      function init() {
+        var click = document.getElementById("click");
+        var clear = document.getElementById("clear");
+
+        click.onclick = clickHandler;
+        clear.onclick = clearHandler;
+      }
+
+      window.onload = init;
+    </script>
+    <style>
+      #target {
+        border: 2px solid gray;
+        width: 300px;
+        height: 100px;
+        line-height: 100px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>event example</h1>
+    <hr />
+
+    <button id="click">click</button>
+    <button id="clear">clear</button>
+    <div id="target"></div>
+  </body>
+</html>

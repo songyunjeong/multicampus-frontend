@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function hrefHandler() {
+        var url = document.getElementById("url");
+        location.href = url.value;
+        url.value = "http://";
+      }
+
+      function assignHandler() {
+        var url = document.getElementById("url");
+        location.assign(url.value);
+        url.value = "http://";
+      }
+
+      function reloadHandler() {
+        // location.reload();
+        location.href = location.herf;
+      }
+
+      function replaceHandler() {
+        var url = document.getElementById("url");
+        location.replace(url.value);
+        url.value = "http://";
+      }
+
+      function init() {
+        var href = document.getElementById("href");
+        href.onclick = hrefHandler;
+
+        var assign = document.getElementById("assign");
+        assign.onclick = assignHandler;
+
+        var reload = document.getElementById("reload");
+        reload.onclick = reloadHandler;
+
+        var replace = document.getElementById("replace");
+        replace.onclick = replaceHandler;
+      }
+
+      window.onload = init;
+    </script>
+  </head>
+  <body>
+    <h1>location example</h1>
+    <hr />
+
+    <label for="url">URL: </label>
+    <input type="text" id="url" value="http://" />
+    <br />
+
+    <button id="href">href</button>
+    <button id="assign">assign</button>
+    <button id="reload">reload</button>
+    <button id="replace">replace</button>
+  </body>
+</html>

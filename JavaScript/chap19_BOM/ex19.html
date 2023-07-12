@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function handler() {
+        var target = document.getElementById("target");
+        var content = "";
+
+        content += "screen.width: " + screen.width + "<br />";
+        content += "screen.height: " + screen.height + "<br />";
+        content += "screen.availWidth: " + screen.availWidth + "<br />";
+        content += "screen.availHeight: " + screen.availHeight + "<br />";
+        content += "screen.colorDepth: " + screen.colorDepth + "<br />";
+        content += "screen.pixelDepth: " + screen.pixelDepth + "<br />";
+
+        target.innerHTML += content;
+      }
+
+      function init() {
+        var btn = document.getElementById("btn");
+        btn.onclick = handler;
+      }
+
+      window.onload = init;
+    </script>
+    <style>
+      #target {
+        border: 2px solid gray;
+        width: 400px;
+        padding-left: 20px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>screen example</h1>
+    <hr />
+
+    <button id="btn">screen info!</button>
+
+    <div id="target">
+      <h4>screen info</h4>
+    </div>
+  </body>
+</html>

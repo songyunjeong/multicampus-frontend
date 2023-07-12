@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>loginProc.html</title>
+    <script>
+      /*
+          login.html로 부터 보내온 로그인 요청에 포함된 파라미터를 읽어
+          미리 약속된 ID, PASSWD 값과 비교하여 일치하면
+          환영 메시지를 출력하고, 일치하지 않는 경우
+          메시지와 함께 다시 로그인 페이지로 되돌리는 코드를 작성하세요.
+      */
+
+      const ID = "harper";
+      const PASSWD = "6789";
+
+      function init() {
+        if (location.search == `?id=${ID}&pw=${PASSWD}`) {
+          alert("환영합니다!");
+        } else {
+          alert("아이디와 비밀번호가 일치하지 않습니다.");
+          location.href = "login.html";
+        }
+      }
+
+      window.onload = init;
+    </script>
+  </head>
+  <body>
+    <h1>로그인 확인중</h1>
+  </body>
+</html>
