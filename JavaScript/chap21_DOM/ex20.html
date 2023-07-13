@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var target;
+
+      function applyHandler() {
+        var userColor = document.querySelector("#color");
+        var userBackgroundColor = document.querySelector("#background-color");
+        var userFontSize = document.querySelector("#font-size");
+
+        target.style.color = userColor.value;
+        target.style.backgroundColor = userBackgroundColor.value;
+        target.style.fontSize = userFontSize.value;
+
+        userColor.value = "";
+        userBackgroundColor = "";
+        userFontSize = "";
+      }
+
+      function clearHandler() {
+        target.style.color = "";
+        target.style.backgroundColor = "";
+        target.style.fontSize = "";
+      }
+
+      function init() {
+        target = document.querySelector("#target");
+
+        document.querySelector("#apply").onclick = applyHandler;
+        document.querySelector("#clear").onclick = clearHandler;
+      }
+
+      window.onload = init;
+    </script>
+    <style>
+      #target {
+        width: 300px;
+        height: 200px;
+        line-height: 200px;
+        border: 2px solid gray;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>동적 스타일 적용</h1>
+    <hr />
+
+    <label for="color">글꼴 색상</label>
+    <input type="text" id="color" />
+
+    <label for="background-color">배경 색상</label>
+    <input type="text" id="background-color" />
+
+    <label for="font-size">글자 크기</label>
+    <input type="text" id="font-size" />
+
+    <button id="apply">적용</button>
+    <button id="clear">해제</button>
+    <hr />
+
+    <div id="target">동적 스타일 적용 결과</div>
+  </body>
+</html>

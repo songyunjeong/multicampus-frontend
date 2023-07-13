@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function init() {
+        var parent = document.querySelector("#parent");
+        var header = document.createElement("h4");
+        header.innerHTML = "header2";
+
+        parent.appendChild(header); // appendChild는 요소 객체만 추가할 수 있다.
+        // parent.appendChild("Hello, world!"); 이렇게 사용할 수 없음
+      }
+
+      window.onload = init;
+    </script>
+  </head>
+  <body>
+    <div id="parent">
+      <h1>header1</h1>
+    </div>
+  </body>
+</html>

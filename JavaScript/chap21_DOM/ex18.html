@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var box;
+
+      function cssHandler1() {
+        box.style.backgroundColor = "green";
+        box.style.borderRadius = "50%";
+      }
+
+      function cssHandler2() {
+        box.style.backgroundColor = "";
+        box.style.borderRadius = "";
+      }
+
+      function init() {
+        box = document.querySelector("#box");
+        box.onmouseover = cssHandler1;
+        box.onmouseout = cssHandler2;
+      }
+
+      window.onload = init;
+    </script>
+    <style>
+      h1 {
+        text-align: center;
+      }
+
+      #box {
+        width: 200px;
+        height: 200px;
+        border: 2px solid gray;
+        margin: 50px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>박스 위에 마우스를 올려보세요</h1>
+    <div id="box"></div>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // DOM에서 노드 삭제하기
+      // remove는 부모가 있어야 함
+      function init() {
+        var parent = document.querySelector("#parent");
+        var remove = document.querySelector("#remove");
+
+        parent.removeChild(remove);
+      }
+
+      window.onload = init;
+    </script>
+  </head>
+  <body>
+    <div id="parent">
+      <h1>header 1</h1>
+      <h1>header 2</h1>
+      <h1 id="remove">header 3</h1>
+      <h1>header 4</h1>
+    </div>
+  </body>
+</html>

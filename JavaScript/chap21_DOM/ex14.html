@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function init() {
+        var img = document.createElement("img");
+        img.src = "./images/Penguins.jpg";
+        img.width = "500";
+
+        // img.setAttribute("data-origin", "사용자 속성");
+        // img.data-origin = "사용자 속성"; // 식별자 이름 규칙을 어겨서 쓸 수 없음
+        img["data-origin"] = "사용자 속성"; // 요소 객체를 대상으로는 동적 속성 사용하면 안됨
+
+        document.body.appendChild(img);
+      }
+
+      window.onload = init;
+    </script>
+  </head>
+  <body></body>
+</html>

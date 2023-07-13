@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function init() {
+        var img = document.createElement("img");
+        img.src = "./images/Penguins.jpg";
+        img.width = "500"; // 자바스크립트는 동적 속성 추가 제거가 자유롭다.
+
+        document.body.appendChild(img);
+      }
+
+      window.onload = init;
+
+      // 시작태그만 있고 종료태그가 없다는 것은 컨텐츠를 가질 수 없다는 것임
+    </script>
+  </head>
+  <body></body>
+</html>

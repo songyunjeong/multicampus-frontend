@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function init() {
+        var parent = document.querySelector("#parent");
+        parent.innerHTML += "<h4>header2</h4>"; // appendChild와 같다.
+
+        // 동적으로 사용하지 않는다면 굳이 appendChild 쓰지 않고 innerHTML 사용해서 간단하게 사용할 수 았다.
+      }
+
+      window.onload = init;
+    </script>
+  </head>
+  <body>
+    <div id="parent">
+      <h1>header1</h1>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      /*
+        사용자로부터 날짜를 입력받아 요일 값을 출력하는 코드를 작성하세요.
+        단, prompt() 함수를 사용할 수 없고, 화면을 직접 구현하여 코드를 작성합니다.
+      */
+
+      function handler() {
+        var date = document.querySelector("#date");
+        var target = document.querySelector("#target");
+        var userDate = new Date(date.value);
+        var dayOfWeek = ["일", "월", "화", "수", "목", "금", "토"];
+
+        target.innerHTML = `결과: ${date.value} 날짜의 요일은 ${
+          dayOfWeek[userDate.getDay()]
+        }요일 입니다.`;
+
+        date.value = "2023-07-13";
+      }
+
+      function init() {
+        document.querySelector("#btn").onclick = handler;
+      }
+
+      window.onload = init;
+    </script>
+  </head>
+  <body>
+    <h1>요일 계산 프로그램</h1>
+    <hr />
+
+    <label for="date">날짜 선택</label>
+    <input type="date" id="date" value="2023-07-13" />
+    <button id="btn">계산</button>
+
+    <hr />
+    <h4 id="target">결과:</h4>
+  </body>
+</html>

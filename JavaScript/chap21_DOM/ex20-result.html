@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function applyHandler() {
+        var target = document.querySelector("#target");
+        var color = document.querySelector("#color");
+        var backgroundColor = document.querySelector("#background-color");
+        var fontSize = document.querySelector("#font-size");
+
+        target.style.color = color.value;
+        target.style.backgroundColor = backgroundColor.value;
+        target.style.fontSize = fontSize.value + "pt";
+      }
+
+      function clearHandler() {
+        var target = document.querySelector("#target");
+        var color = document.querySelector("#color");
+        var backgroundColor = document.querySelector("#background-color");
+        var fontSize = document.querySelector("#font-size");
+
+        target.style.color = "#000000";
+        target.style.backgroundColor = "#ffffff";
+        target.style.fontSize = "12pt";
+
+        color.value = "#000000";
+        backgroundColor.value = "#ffffff";
+        fontSize.value = "12";
+        size.innerHTML = "12";
+      }
+
+      function changeHandler() {
+        var fontSize = document.querySelector("#font-size");
+        var size = document.querySelector("#size");
+
+        size.innerHTML = fontSize.value;
+      }
+
+      function init() {
+        document.querySelector("#apply").onclick = applyHandler;
+        document.querySelector("#clear").onclick = clearHandler;
+        document.querySelector("#font-size").onchange = changeHandler;
+      }
+
+      window.onload = init;
+    </script>
+    <style>
+      #target {
+        width: 450px;
+        height: 200px;
+        line-height: 200px;
+        border: 2px solid gray;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>동적 스타일 적용</h1>
+    <hr />
+
+    <label for="color">글꼴 색상</label>
+    <input type="color" id="color" value="#000000" />
+
+    <label for="background-color">배경 색상</label>
+    <input type="color" id="background-color" value="#ffffff" />
+
+    <label for="font-size">글자 크기</label>
+    <input type="range" id="font-size" min="8" max="30" value="12" />
+    <span id="size">12</span>
+    <br />
+    <br />
+
+    <button id="apply">적용</button>
+    <button id="clear">해제</button>
+    <hr />
+
+    <div id="target">동적 스타일 적용 결과</div>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function init() {
+        var header = document.createElement("h1");
+        var text = document.createTextNode("Hello, World!");
+        header.appendChild(text);
+
+        document.body.appendChild(header); // 동적 컨텐츠 생성
+      }
+
+      window.onload = init;
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var img;
+
+      function setHandler() {
+        img.setAttribute("dara-origin", "사용자 속설 값");
+      }
+
+      function getHandler() {
+        alert(img.getAttribute("dara-origin"));
+      }
+
+      function removeHandler() {
+        img.removeAttribute("dara-origin");
+      }
+
+      function init() {
+        img = document.querySelector("img");
+        document.querySelector("#set").onclick = setHandler;
+        document.querySelector("#get").onclick = getHandler;
+        document.querySelector("#remove").onclick = removeHandler;
+      }
+
+      window.onload = init;
+    </script>
+  </head>
+  <body>
+    <img src="./images/Penguins.jpg" width="500" />
+    <br />
+
+    <button id="set">set</button>
+    <button id="get">get</button>
+    <button id="remove">remove</button>
+  </body>
+</html>
