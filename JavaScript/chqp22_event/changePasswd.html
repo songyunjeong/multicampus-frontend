@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./js/parameter.js" charset="UTF-8"></script>
+    <script>
+      function init() {
+        var parameters = getParameters(location.search);
+        var id = document.querySelector("#id");
+        id.innerHTML = parameters.getParametersValue("id");
+      }
+
+      window.onload = init;
+    </script>
+  </head>
+  <body>
+    <h1>비밀번호 변경 완료</h1>
+    <hr />
+
+    <h4><span id="id"></span>님의 비밀번호 변경을 완료했습니다.</h4>
+  </body>
+</html>

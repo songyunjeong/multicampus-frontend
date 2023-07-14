@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var btn;
+
+      function clickHandler1() {
+        alert("clickHandler1");
+      }
+
+      function clickHandler2() {
+        alert("clickHandler2");
+        btn.removeEventListener("click", clickHandler2);
+      }
+
+      function init() {
+        btn = document.querySelector("#btn");
+        btn.addEventListener("click", clickHandler1);
+        btn.addEventListener("click", clickHandler2);
+      }
+
+      window.onload = init;
+    </script>
+  </head>
+  <body>
+    <h1>다중 이벤트 연결</h1>
+    <hr />
+
+    <button id="btn">click</button>
+  </body>
+</html>

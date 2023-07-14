@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var myName = "손흥민";
+
+      function func() {
+        alert("func() 함수호출");
+      }
+
+      // window.alert(window.myName);
+      // window.func();
+
+      function func2() {
+        alert(this); // this: 연결 안된 함수는 window 객체를 의미한다.
+      }
+
+      func2();
+    </script>
+  </head>
+  <body></body>
+</html>

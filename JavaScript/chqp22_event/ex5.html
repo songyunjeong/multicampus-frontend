@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var btn1;
+
+      function btn1Handler() {
+        var counterA = document.querySelector("#counterA");
+        counterA.innerHTML = parseInt(counterA.innerHTML) + 1;
+      }
+
+      function btn2Handler() {
+        var counterB = document.querySelector("#counterB");
+        counterB.innerHTML = parseInt(counterB.innerHTML) + 1;
+
+        btn1.onclick();
+      }
+
+      function init() {
+        btn1 = document.querySelector("#btn1"); // 요소 객체
+        btn1.onclick = btn1Handler; // 함수를 값으로 가지는 속성 추가
+
+        document.querySelector("#btn2").onclick = btn2Handler;
+      }
+
+      window.onload = init;
+    </script>
+  </head>
+  <body>
+    <h1>이벤트 강제 발생</h1>
+    <hr />
+
+    <button id="btn1">ButtonA</button>
+    <button id="btn2">ButtonB</button>
+    <hr />
+
+    <h3>ButtonA: <span id="counterA">0</span></h3>
+    <h3>ButtonB: <span id="counterB">0</span></h3>
+  </body>
+</html>

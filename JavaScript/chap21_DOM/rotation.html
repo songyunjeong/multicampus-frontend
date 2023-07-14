@@ -5,19 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script>
-      function init() {}
+      var intervalId;
+
+      function rotateHandler() {
+        intervalId = setInterval(function () {
+          var firstImg = document.querySelector("img");
+          firstImg.parentNode.appendChild(firstImg);
+        }, 1000);
+      }
+
+      function stopHandler() {
+        clearInterval(intervalId);
+      }
+
+      function init() {
+        document.querySelector("#rotate").onclick = rotateHandler;
+        document.querySelector("#stop").onclick = stopHandler;
+      }
 
       window.onload = init;
     </script>
     <style>
-      #images {
-        width: 1600px;
-        display: flex;
+      * {
+        margin: 0;
+        padding: 0;
       }
 
-      #images img {
+      h1 {
+        text-align: center;
+        padding: 50px;
+      }
+
+      button {
+        display: inline-block;
+        width: 100px;
+        height: 60px;
+        margin: 30px;
+        font-size: large;
+      }
+
+      #images {
+        padding: 20px;
+      }
+
+      img {
         width: 200px;
         display: block;
+        float: left;
       }
     </style>
   </head>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function handler(event) {
+        var target = document.querySelector("#target");
+        var content = "";
+
+        for (var key in event) {
+          content += key + " : " + event[key] + "<br />";
+        }
+
+        target.innerHTML += content;
+      }
+
+      function init() {
+        document.querySelector("#btn").onclick = handler;
+      }
+
+      window.onload = init;
+    </script>
+  </head>
+  <body>
+    <h1>이벤트 객체 확인</h1>
+    <hr />
+
+    <button id="btn">click</button>
+
+    <p id="target"></p>
+  </body>
+</html>

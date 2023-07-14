@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function daumHandler() {
+        alert("다음 링크를 클릭했습니다.");
+      }
+
+      function nateHandler() {
+        alert("네이트 링크를 클릭했습니다.");
+
+        return false; // 디폴트 이벤트 제거
+      }
+
+      function init() {
+        document.querySelector("#daum").onclick = daumHandler; // 사용자 이벤트
+        document.querySelector("#nate").onclick = nateHandler;
+      }
+
+      window.onload = init;
+    </script>
+  </head>
+  <body>
+    <h1>디폴트 이벤트 확인</h1>
+    <hr />
+
+    <a href="https://www.naver.com">네이버</a><br />
+    <a href="https://www.daum.net" id="daum">다음</a><br />
+    <a href="https://www.nate.com" id="nate">네이트</a>
+  </body>
+</html>

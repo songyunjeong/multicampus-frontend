@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function clickHandler() {
+        alert(this.innerHTML); // this: 이벤트 헨들러와 연결된 대상 객체를 의미한다.
+      }
+
+      function init() {
+        document.querySelector("#header").onclick = clickHandler;
+      }
+
+      window.onload = init;
+    </script>
+  </head>
+  <body>
+    <h1 id="header">클릭하세요</h1>
+  </body>
+</html>
