@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="./changePasswd.html" />
+    <script>
+      /*
+          1. 이벤트 연결 방식을 표준 이벤트 연결 방식으로 변경하세요.
+          2. 변경된 코드를 실행하여 디폴트 이벤트 제거를 테스트 하세요.
+          3. 표준 이벤트 연결 방식에서 디폴트 이벤트 제거는 이벤트 객체의 preventDefault() 메서드를 사용합니다.
+      */
+
+      function submitHandler(event) {
+        var id = document.querySelector("#id");
+        var passwd = document.querySelector("#passwd");
+        var newPasswd = document.querySelector("#newPasswd");
+        var rePasswd = document.querySelector("#rePasswd");
+        var msg = document.querySelector("#msg");
+
+        if (
+          id.value.length >= 3 &&
+          passwd.value.length >= 3 &&
+          newPasswd.value.length >= 3 &&
+          rePasswd.value.length >= 3 &&
+          newPasswd.value === rePasswd.value
+        ) {
+          null;
+        } else {
+          id.value = "";
+          passwd.value = "";
+          newPasswd.value = "";
+          rePasswd.value = "";
+
+          msg.innerHTML =
+            "비밀번호 변경 작업 실패! 입력 값을 다시 확인해주세요.";
+          msg.style.color = "red";
+
+          id.focus();
+          event.preventDefault();
+        }
+      }
+
+      function init() {
+        document
+          .querySelector("#changePasswd")
+          .addEventListener("submit", submitHandler);
+      }
+
+      window.addEventListener("load", init);
+    </script>
+    <style>
+      label {
+        display: inline-block;
+        width: 150px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>비밀번호 변경</h1>
+    <hr />
+
+    <form action="changePasswd.html" id="changePasswd">
+      <fieldset>
+        <label for="id">아이디</label>
+        <input type="text" id="id" name="id" required /><br />
+
+        <label for="passwd">이전 패스워드</label>
+        <input type="password" id="passwd" name="passwd" required /><br />
+
+        <label for="newPasswd">변경 패스워드</label>
+        <input type="password" id="newPasswd" name="newPasswd" required /><br />
+
+        <label for="rePasswd">변경 패스워드 확인</label>
+        <input type="password" id="rePasswd" required /><br /><br />
+
+        <input type="submit" id="submitBtn" value="변경" />
+      </fieldset>
+    </form>
+
+    <div id="msg"></div>
+  </body>
+</html>

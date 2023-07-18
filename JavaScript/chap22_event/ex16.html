@@ -7,23 +7,17 @@
     <link href="./changePasswd.html" />
     <script>
       /*
-          다음과 같이 사용자 입력을 검사하여 올바른 입력인 경우에만
-          비밀번호 변경 작업이 수행될 수 있도록 합니다.
-
-          1. 모든 사용자 입력은 값이 존재해야하고 3자 이상이어야 합니다.
-          2. 변경 패스워드와 변경 패스워드 확인의 입력 값은 같아야 한다.
-
-          잘못된 사용자 입력의 경우 사용자 입력을 모두 초기화 한 후
-          현재 페이지를 유지해야 한다.
+          1. 이벤트 연결 방식을 표준 이벤트 연결 방식으로 변경하세요.
+          2. 변경된 코드를 실행하여 디폴트 이벤트 제거를 테스트 하세요.
+          3. 표준 이벤트 연결 방식에서 디폴트 이벤트 제거는 이벤트 객체의 preventDefault() 메서드를 사용합니다.
       */
 
-      function submitHandler() {
+      function submitHandler(event) {
         var id = document.querySelector("#id");
         var passwd = document.querySelector("#passwd");
         var newPasswd = document.querySelector("#newPasswd");
         var rePasswd = document.querySelector("#rePasswd");
         var msg = document.querySelector("#msg");
-        var result = false;
 
         if (
           id.value.length >= 3 &&
@@ -32,10 +26,8 @@
           rePasswd.value.length >= 3 &&
           newPasswd.value === rePasswd.value
         ) {
-          result = true;
-        }
-
-        if (!result) {
+          null;
+        } else {
           id.value = "";
           passwd.value = "";
           newPasswd.value = "";
@@ -46,16 +38,17 @@
           msg.style.color = "red";
 
           id.focus();
+          event.preventDefault();
         }
-
-        return result;
       }
 
       function init() {
-        document.querySelector("#changePasswd").onsubmit = submitHandler;
+        document
+          .querySelector("#changePasswd")
+          .addEventListener("submit", submitHandler);
       }
 
-      window.onload = init;
+      window.addEventListener("load", init);
     </script>
     <style>
       label {

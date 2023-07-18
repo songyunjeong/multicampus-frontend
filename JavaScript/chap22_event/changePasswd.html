@@ -9,7 +9,7 @@
       function init() {
         var parameters = getParameters(location.search);
         var id = document.querySelector("#id");
-        id.innerHTML = parameters.getParametersValue("id");
+        id.innerHTML = parameters.getParamValue("id");
       }
 
       window.onload = init;

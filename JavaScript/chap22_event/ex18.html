@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // event.target
+
+      function handler(event) {
+        var content = event.target.innerHTML;
+
+        if (content == "Create") {
+          alert("생성 작업 수행");
+        } else if (content == "Read") {
+          alert("읽기 작업 수행");
+        } else if (content == "Update") {
+          alert("변경 작업 수행");
+        } else if (content == "Delete") {
+          alert("삭제 작업 수행");
+        }
+      }
+
+      function init() {
+        document.querySelector("#buttons").addEventListener("click", handler);
+      }
+
+      window.onload = init;
+    </script>
+  </head>
+  <body>
+    <h1>이벤트 버블링</h1>
+    <hr />
+
+    <div id="buttons">
+      <button>Create</button><br />
+      <button>Read</button><br />
+      <button>Update</button><br />
+      <button>Delete</button>
+    </div>
+  </body>
+</html>

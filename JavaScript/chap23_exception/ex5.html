@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      try {
+        alert("[1] 오류 발생 전");
+        alert("[2]" + (4 + num)); // 오류 (실행 안됨)
+        alert("[3] 오류 발생 후"); // 오류 이후 문장은 실행되지 않음 catch로 이동한다.
+      } catch (e) {
+        // e: try 문장에서 발생한 오류
+        alert("[4] 에러 처리");
+      } finally {
+        // 예외발생 유무와 관계없이 반드시 수행해야 되는 문장
+        alert("[5] finally 블럭");
+      }
+
+      alert("[6] 에러 처리 후");
+    </script>
+  </head>
+  <body></body>
+</html>

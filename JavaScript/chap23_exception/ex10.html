@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function getCircleCircumference(radius) {
+        if (radius <= 0) {
+          throw new Error("원의 반지름은 0보다 큰 값이어야 합니다.");
+        }
+
+        return 2 * radius * 3.141592;
+      }
+
+      var radius = prompt("원의 반지름을 입력하세요.", 5);
+      radius = Number(radius);
+
+      alert("원의 둘레는: " + getCircleCircumference(radius));
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>form</title>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        let userId = document.getElementById("user_id");
+        let userPw1 = document.getElementById("user_pw1");
+        let userPw2 = document.getElementById("user_pw2");
+        let pwBtn = document.getElementById("pw_btn");
+        let telSecond = document.getElementById("tel_second");
+        let telThird = document.getElementById("tel_third");
+
+        userId.addEventListener("change", checkId);
+        userPw1.addEventListener("change", checkPw);
+        pwBtn.addEventListener("click", comparePw);
+        telSecond.addEventListener("keyup", moveTelNo);
+        // key up, keydown이 있음. keydown은 꾹 눌렀을 때 계속 클릭으로 인식되어서 key up 사용하는 것이 나음.
+
+        function checkId() {
+          if (userId.value.length < 6 || userId.value.length > 15) {
+            document.querySelector(".id_message").textContent =
+              "아이디는 6~15자로 입력하세요.";
+            // document.querySelector('.id_message').innerHTML = '아이디는 6~15자로 입력하세요'
+            // .innerHTML로도 사용가능함. 트렌드는 textContent 사용하는 것임.
+            userId.value = "";
+            userId.focus();
+          } else {
+            document.querySelector(".id_message").textContent =
+              "사용가능한 아이디입니다.";
+          }
+        }
+
+        function checkPw() {
+          if (userPw1.value.length < 4) {
+            alert("비밀번호는 4글자 이상이어야 합니다.");
+            userPw1.value = "";
+            userPw1.focus();
+          } else {
+            alert("사용할 수 있는 비밀번호 입니다.");
+            userPw2.focus();
+          }
+        }
+
+        function comparePw() {
+          if (userPw1.value != userPw2.value) {
+            alert("암호가 다릅니다. 다시 입력하세요.");
+            userPw2.select();
+          } else {
+            telSecond.focus();
+          }
+        }
+
+        function moveTelNo() {
+          if (telSecond.value.length >= 4) {
+            telThird.focus();
+          }
+        }
+      });
+    </script>
+    <style>
+      .id_message {
+        color: red;
+        font-size: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h3>회원가입</h3>
+      <form action="">
+        <ul>
+          <li>
+            <label for="user_id">아이디</label>
+            <input
+              type="text"
+              name="user_id"
+              id="user_id"
+              class="user_id"
+              placeholder="6~15자 입력"
+              required
+              autofocus
+            />
+            <span class="id_message"></span>
+          </li>
+          <li>
+            <label for="user_pw1">비밀번호</label>
+            <input
+              type="text"
+              name="user_pw1"
+              id="user_pw1"
+              placeholder="4자리 이상 입력"
+              required
+            />
+          </li>
+          <li>
+            <label for="user_pw">비밀번호 확인</label>
+            <input type="text" name="user_pw2" id="user_pw2" />
+            <button type="button" id="pw_btn">비밀번호 확인</button>
+          </li>
+          <li>
+            <label for="">전화번호</label>
+            <select name="" id="tel_first">
+              <option value="010">010</option>
+              <option value="011">011</option>
+            </select>
+            <label for="">-</label>
+            <input type="text" id="tel_second" size="8" />
+            <label for="">-</label>
+            <input type="text" id="tel_third" size="8" />
+          </li>
+        </ul>
+      </form>
+    </div>
+  </body>
+</html>

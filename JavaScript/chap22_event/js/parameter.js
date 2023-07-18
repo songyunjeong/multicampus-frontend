@@ -12,7 +12,7 @@ function getParameters(search) {
 
   for (var i in params) {
     var param = params[i].split("=");
-    params[i] = getParameter(param[0], decodeURIComponent(param[1]));
+    params[i] = getParameter(param[0], decodeURIComponent(param[1])); // decodeURIComponent: 디코딩. 한글 아이디 사용 가능함. (인코딩은 자동으로 해줌)
   }
 
   var parameters = {
