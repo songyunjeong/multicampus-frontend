@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script>
+      var xhr = new XMLHttpRequest(); // 생성자 함수이기 때문에 객체를 만들어서 사용해야 한다.
+
       function parsePersonJSON(jsonStr) {
-        var persons = JSON.parse(jsonStr);
+        var persons = JSON.parse(jsonStr); // persons에는 배열이 저장되어있다.
 
         for (var i in persons) {
-          var content = `<h4>이름: ${persons[i].name}</h4>`;
+          // 그래서 for in을 사용할 수 있다.
+          var content = `<h4>이름: ${persons[i].name}</h4>`; // persons[i]: 각각의 객체
           content += `<h4>성별: ${persons[i].gender}</h4>`;
           content += `<h4>나이: ${persons[i].age}</h4>`;
           content += `<h4>분야: ${persons[i].field}</h4>`;
@@ -25,17 +28,28 @@
       }
 
       function sendHandler() {
-        xhr.open("GET", "persons.csv", false);
-        xhr.send();
-      }
+        xhr.open("GET", "persons.json", false); // open(): Ajax 요청을 준비하는 메서드
+        // 매개변수: 메서드(GET, POST, PUT, DELETE), url, 비동기 방식인지(true) 동기 방식인지(false)
+        xhr.send(); // 서버로부터 응답이 도착해야 종료됨
 
-      function init() {
-        var personsChild = parsePersonJSON(personsJSON);
+        var personsChild = parsePersonJSON(xhr.responseText); // responseText: send()의 응답
         var persons = document.querySelector("#persons");
+        persons.innerHTML = "";
 
         for (var i in personsChild) {
           persons.appendChild(personsChild[i]);
         }
+      }
+
+      function clearHandler() {
+        document.querySelector("#persons").innerHTML = "";
+      }
+
+      function init() {
+        document.querySelector("#send").addEventListener("click", sendHandler);
+        document
+          .querySelector("#clear")
+          .addEventListener("click", clearHandler);
       }
 
       window.addEventListener("load", init);

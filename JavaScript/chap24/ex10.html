@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var xhr = new XMLHttpRequest();
+      xhr.addEventListener("readystatechange", ajaxHandler);
+
+      function ajaxHandler() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          var personsChild = parsePersonCSV(xhr.responseText);
+          var persons = document.querySelector("#persons");
+          persons.innerHTML = "";
+
+          for (var i in personsChild) {
+            persons.appendChild(personsChild[i]);
+          }
+        }
+      }
+
+      function parsePersonCSV(csv) {
+        var persons = csv.split("\n");
+
+        if (!Boolean(persons[persons.length - 1])) {
+          persons.pop();
+        }
+
+        for (var i in persons) {
+          var content = "";
+          persons[i] = persons[i].split(",");
+
+          for (var j in persons[i]) {
+            persons[i][j] = persons[i][j].trim();
+          }
+
+          content += `<h4>이름: ${persons[i][0]}</h4>`;
+          content += `<h4>성별: ${persons[i][1]}</h4>`;
+          content += `<h4>나이: ${persons[i][2]}</h4>`;
+          content += `<h4>분야: ${persons[i][3]}</h4>`;
+
+          var div = document.createElement("div");
+          div.setAttribute("class", "person");
+          div.innerHTML = content;
+
+          persons[i] = div;
+        }
+
+        return persons;
+      }
+
+      function sendHandler() {
+        // sendHandler()는 Ajax 요청을 보내는 것(.send()) 만하고 받아서 처리하는 거는 ajaxHandler()에서 수행
+        xhr.open("GET", "persons.csv", true);
+        xhr.send();
+      }
+
+      function clearHandler() {
+        document.querySelector("#persons").innerHTML = "";
+      }
+
+      function init() {
+        document.querySelector("#send").addEventListener("click", sendHandler);
+        document
+          .querySelector("#clear")
+          .addEventListener("click", clearHandler);
+      }
+
+      window.addEventListener("load", init);
+    </script>
+    <style>
+      .person {
+        width: 200px;
+        border: 2px solid gray;
+        padding: 20px;
+        margin: 20px;
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>인물정보</h1>
+    <hr />
+
+    <button id="send">AJAX Go!</button>
+    <button id="clear">Clear!</button>
+
+    <div id="persons"></div>
+  </body>
+</html>

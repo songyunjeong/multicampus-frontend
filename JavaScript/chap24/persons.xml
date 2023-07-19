@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<persons>
+  <person>
+    <name>손흥민</name>
+    <gender>남자</gender>
+    <age>31</age>
+    <field>축구</field>
+  </person>
+  <person>
+    <name>김연아</name>
+    <gender>여자</gender>
+    <age>34</age>
+    <field>피겨</field>
+  </person>
+  <person>
+    <name>류현진</name>
+    <gender>남자</gender>
+    <age>37</age>
+    <field>야구</field>
+  </person>
+</persons>

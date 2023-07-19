@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var xhr = new XMLHttpRequest(); // 생성자 함수이기 때문에 객체를 만들어서 사용해야 한다.
+      xhr.addEventListener("readystatechange", ajaxHandler);
+
+      function ajaxHandler() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          var personsChild = parsePersonsXML(xhr.responseXML); // responseXML이 파싱해서 객체로 만들어줌
+          var persons = document.querySelector("#persons");
+          persons.innerHTML = "";
+
+          for (var i in personsChild) {
+            persons.appendChild(personsChild[i]);
+          }
+        }
+      }
+
+      function parsePersonsXML(personsXML) {
+        var persons = personsXML.querySelectorAll("person"); // persons => node list
+        var personsArr = [];
+
+        for (var i = 0; i < persons.length; i++) {
+          // 유사배열 객체이기 때문에 예전 for문 사용해야 함
+          var content = `<h4>이름: ${persons[i].children[0].innerHTML}</h4>`; // persons[i]: 각각의 persons 요소 객체
+          content += `<h4>성별: ${persons[i].children[1].innerHTML}</h4>`;
+          content += `<h4>나이: ${persons[i].children[1].innerHTML}</h4>`;
+          content += `<h4>분야: ${persons[i].children[3].innerHTML}</h4>`;
+          // childNodes: white space까지 자식으로 포함하기 때문에 1, 3, 5, 7
+
+          var div = document.createElement("div");
+          div.setAttribute("class", "person");
+          div.innerHTML = content;
+
+          personsArr.push(div);
+        }
+
+        return personsArr;
+      }
+
+      function sendHandler() {
+        xhr.open("GET", "persons.xml", true);
+        xhr.send();
+      }
+
+      function clearHandler() {
+        document.querySelector("#persons").innerHTML = "";
+      }
+
+      function init() {
+        document.querySelector("#send").addEventListener("click", sendHandler);
+        document
+          .querySelector("#clear")
+          .addEventListener("click", clearHandler);
+      }
+
+      window.addEventListener("load", init);
+    </script>
+    <style>
+      .person {
+        width: 200px;
+        border: 2px solid gray;
+        padding: 20px;
+        margin: 20px;
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>인물정보</h1>
+    <hr />
+
+    <button id="send">AJAX Go!</button>
+    <button id="clear">Clear!</button>
+
+    <div id="persons"></div>
+  </body>
+</html>

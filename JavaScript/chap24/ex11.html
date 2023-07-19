@@ -1,20 +1,33 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
   <head>
-    <title></title>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
     <script>
-      var xhr = new XMLHttpRequest();
+      var xhr = new XMLHttpRequest(); // 생성자 함수이기 때문에 객체를 만들어서 사용해야 한다.
+      xhr.addEventListener("readystatechange", ajaxHandler);
 
-      function parsePersonsJSON(jsonStr) {
+      function ajaxHandler() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          var personsChild = parsePersonJSON(xhr.responseText);
+          var persons = document.querySelector("#persons");
+          persons.innerHTML = "";
+
+          for (var i in personsChild) {
+            persons.appendChild(personsChild[i]);
+          }
+        }
+      }
+
+      function parsePersonJSON(jsonStr) {
         var persons = JSON.parse(jsonStr);
 
         for (var i in persons) {
-          var content = "<h4>이름: " + persons[i].name + "</h4>";
-          content += "<h4>성별: " + persons[i].gender + "</h4>";
-          content += "<h4>나이: " + persons[i].age + "</h4>";
-          content += "<h4>분야: " + persons[i].field + "</h4>";
+          var content = `<h4>이름: ${persons[i].name}</h4>`;
+          content += `<h4>성별: ${persons[i].gender}</h4>`;
+          content += `<h4>나이: ${persons[i].age}</h4>`;
+          content += `<h4>분야: ${persons[i].field}</h4>`;
 
           var div = document.createElement("div");
           div.setAttribute("class", "person");
@@ -27,16 +40,8 @@
       }
 
       function sendHandler() {
-        xhr.open("GET", "persons.json", false);
+        xhr.open("GET", "persons.json", true);
         xhr.send();
-
-        var personsChild = parsePersonsJSON(xhr.responseText);
-        var persons = document.querySelector("#persons");
-        persons.innerHTML = "";
-
-        for (var i in personsChild) {
-          persons.appendChild(personsChild[i]);
-        }
       }
 
       function clearHandler() {
@@ -62,9 +67,8 @@
       }
     </style>
   </head>
-
   <body>
-    <h1>인물 정보</h1>
+    <h1>인물정보</h1>
     <hr />
 
     <button id="send">AJAX Go!</button>

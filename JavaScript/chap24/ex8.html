@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var xhr = new XMLHttpRequest();
+
+      function sendHandler() {
+        xhr.open("GET", "persons.json", false);
+
+        var startTime = new Date().getTime(); // .getTime(): 유닉스 타임값 반환
+        xhr.send();
+        var endTime = new Date().getTime();
+
+        alert("responseText: " + xhr.responseText);
+        alert("지연시간: " + (endTime - startTime));
+      }
+
+      function init() {
+        document.querySelector("#send").addEventListener("click", sendHandler);
+      }
+
+      window.addEventListener("load", init);
+    </script>
+  </head>
+  <body>
+    <h1>send() 메서드 지연 시간</h1>
+    <hr />
+
+    <button id="send">AJAX Go!</button>
+  </body>
+</html>
