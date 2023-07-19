@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var personsJSON =
+        '[{"name":"손흥민","gender":"남자","age":31,"field":"축구"},{"name":"류현진","gender":"남자","age":37,"field":"야구"},{"name":"김연아","gender":"여자","age":34,"field":"피겨"}]';
+
+      function parsePersonJSON(jsonStr) {
+        var persons = JSON.parse(jsonStr);
+
+        for (var i in persons) {
+          var content = `<h4>이름: ${persons[i].name}</h4>`;
+          content += `<h4>성별: ${persons[i].gender}</h4>`;
+          content += `<h4>나이: ${persons[i].age}</h4>`;
+          content += `<h4>분야: ${persons[i].field}</h4>`;
+
+          var div = document.createElement("div");
+          div.setAttribute("class", "person");
+          div.innerHTML = content;
+
+          persons[i] = div;
+        }
+
+        return persons;
+      }
+
+      function init() {
+        var personsChild = parsePersonJSON(personsJSON);
+        var persons = document.querySelector("#persons");
+
+        for (var i in personsChild) {
+          persons.appendChild(personsChild[i]);
+        }
+      }
+
+      window.addEventListener("load", init);
+    </script>
+    <style>
+      .person {
+        width: 200px;
+        border: 2px solid gray;
+        padding: 20px;
+        margin: 20px;
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>인물정보</h1>
+    <hr />
+
+    <div id="persons"></div>
+  </body>
+</html>

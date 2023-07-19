@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var personsCSV = "손흥민, 남자, 31, 축구\n";
+      personsCSV += "김연아, 여자, 32, 피겨\n";
+      personsCSV += "류현진, 남자, 37, 야구";
+
+      function parsePersonCSV(csv) {
+        var persons = csv.split("\n");
+
+        for (var i in persons) {
+          var content = "";
+          persons[i] = persons[i].split(",");
+
+          for (var j in persons[i]) {
+            persons[i][j] = persons[i][j].trim(); // trim(): 앞 뒤 의미없는 공백 제거
+          }
+
+          content += `<h4>이름: ${persons[i][0]}</h4>`;
+          content += `<h4>성별: ${persons[i][1]}</h4>`;
+          content += `<h4>나이: ${persons[i][2]}</h4>`;
+          content += `<h4>분야: ${persons[i][3]}</h4>`;
+
+          var div = document.createElement("div");
+          div.setAttribute("class", "person");
+          div.innerHTML = content;
+
+          persons[i] = div;
+        }
+
+        return persons; // div 요소객체들의 배열
+      }
+
+      function init() {
+        var personsChild = parsePersonCSV(personsCSV);
+        var persons = document.querySelector("#persons");
+
+        // persons.append(...personsChild);
+
+        for (var i in personsChild) {
+          persons.appendChild(personsChild[i]);
+        }
+      }
+
+      window.onload = init;
+    </script>
+    <style>
+      .person {
+        width: 200px;
+        border: 2px solid gray;
+        padding: 20px;
+        margin: 20px;
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>인물정보</h1>
+    <hr />
+
+    <div id="persons"></div>
+  </body>
+</html>

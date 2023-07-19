@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var xhr = new XMLHttpRequest();
+
+      function sendCSVHandler() {
+        var target = document.querySelector("#target");
+
+        xhr.open("GET", "persons.csv", false); // false = 동기방식으로 동작
+        xhr.send();
+
+        target.innerHTML = xhr.responseText;
+      }
+
+      function sendJSONHandler() {
+        var target = document.querySelector("#target");
+
+        xhr.open("GET", "persons.json", false);
+        xhr.send();
+
+        target.innerHTML = xhr.responseText;
+      }
+
+      function init() {
+        document
+          .querySelector("#sendCSV")
+          .addEventListener("click", sendCSVHandler);
+        document
+          .querySelector("#sendJSON")
+          .addEventListener("click", sendJSONHandler);
+      }
+
+      window.onload = init;
+    </script>
+    <style>
+      #target {
+        width: 500px;
+        height: 200px;
+        border: 2px solid gray;
+        padding: 20px;
+        margin: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>AJAX Example</h1>
+    <hr />
+
+    <button id="sendCSV">AJAX CSV!</button>
+    <button id="sendJSON">AJAX JSON!</button>
+
+    <div id="target"></div>
+  </body>
+</html>
+
+<!-- 
+  form에서 method, action 필요함
+  method => GET, POST
+ -->

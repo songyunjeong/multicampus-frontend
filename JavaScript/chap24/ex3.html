@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var persons = [
+        {
+          name: "손흥민",
+          gender: "남자",
+          age: 31,
+          field: "축구",
+        },
+        {
+          name: "류현진",
+          gender: "남자",
+          age: 37,
+          field: "야구",
+        },
+        {
+          name: "김연아",
+          gender: "여자",
+          age: 34,
+          field: "피겨",
+        },
+      ];
+
+      var personJSON = JSON.stringify(persons);
+      var personsObj = JSON.parse(personJSON);
+
+      function init() {
+        document.querySelector("#jsonStr").innerHTML = personJSON;
+
+        // alert(personsObj[1].name);
+      }
+
+      window.addEventListener("load", init);
+    </script>
+  </head>
+  <body>
+    <h1></h1>
+    <hr />
+
+    <p id="jsonStr"></p>
+  </body>
+</html>

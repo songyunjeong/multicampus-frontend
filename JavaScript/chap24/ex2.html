@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var person = {
+        name: "손흥민",
+        gender: "남자",
+        age: 31,
+        field: ["축구", "야구"],
+        friend: {
+          name: "류현진",
+          gender: "남자",
+          age: 37,
+          field: "야구",
+        },
+      };
+
+      function init() {
+        var jsonStr = document.querySelector("#jsonStr");
+        var jsonObj = document.querySelector("#jsonObj");
+
+        var jsonData = JSON.stringify(person);
+        jsonStr.innerHTML = jsonData;
+
+        var jsonPerson = JSON.parse(jsonData);
+        var content = "";
+
+        for (var key in jsonPerson) {
+          if (typeof jsonPerson[key] !== "object") {
+            content += key + " : " + jsonPerson[key] + "<br />";
+          }
+        }
+
+        jsonObj.innerHTML = content;
+      }
+
+      window.onload = init;
+    </script>
+  </head>
+  <body>
+    <h1>JSON 예제</h1>
+    <hr />
+
+    <h4>JSON 문자열</h4>
+    <p id="jsonStr"></p>
+
+    <h4>JSON 변환 객체</h4>
+    <p id="jsonObj"></p>
+  </body>
+</html>
