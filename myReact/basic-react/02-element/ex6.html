@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document</title>
+    <meta charset="UTF-8" />
+    <script>
+      var arr = [100, 3.14, false, "string", -5];
+      var content = "";
+
+      // prettier-ignore
+      arr.forEach(function (val, i) { // 매개변수로 값과 순서번호를 받음
+        content += i + ": " + val + "\n";
+      });
+
+      alert(content);
+    </script>
+  </head>
+  <body></body>
+</html>

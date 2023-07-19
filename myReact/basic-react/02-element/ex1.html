@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document</title>
+    <meta charset="UTF-8" />
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script>
+      var dish = React.createElement("h1", null, "구운연어"); // React 객체 사용: react 라이브러리에서 가져온 것
+      console.log("dish", dish);
+
+      function init() {
+        var container = document.querySelector("#react-container");
+
+        ReactDOM.render(dish, container); // ReactDOM 객체 사용: react-dom 라이브러리에서 가져온 것
+      }
+
+      window.addEventListener("load", init);
+    </script>
+  </head>
+  <body>
+    <div id="react-container"></div>
+  </body>
+</html>
