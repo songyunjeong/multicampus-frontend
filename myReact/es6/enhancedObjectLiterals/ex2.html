@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document</title>
+    <meta charset="UTF-8" />
+    <script>
+      // 객체 리터럴 개선
+      var name = "손흥민";
+      var gender = "남자";
+      var age = 31;
+      var play = function () {
+        console.log(this.name + "이 축구를 합니다.");
+      };
+
+      var person = {
+        name,
+        gender,
+        age,
+        play,
+      };
+
+      console.log("person", person);
+      person.play();
+    </script>
+  </head>
+  <body></body>
+</html>

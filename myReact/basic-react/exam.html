@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script>
+      /*
+          리액트를 이용하여 동적 화면 구성 기능을 구현하는 코드를 작성하세요.
+      */
+
+      var xhr = new XMLHttpRequest();
+      xhr.addEventListener("readystatechange", ajaxHandler);
+
+      function ajaxHandler() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          var personsChild = parsePersonJSON(xhr.responseText);
+          var persons = document.querySelector("#persons");
+
+          ReactDOM.render(personsChild, persons);
+        }
+      }
+
+      function parsePersonJSON(jsonStr) {
+        var persons = JSON.parse(jsonStr);
+
+        for (var i in persons) {
+          var content;
+
+          content = `이름: ${persons[i].name}`;
+          content += `성별: ${persons[i].gender}`;
+          content += `나이: ${persons[i].age}`;
+          content += `분야: ${persons[i].field}`;
+
+          var div = React.createElement(
+            "div",
+            { className: "person" },
+            React.createElement("h4", null, content)
+          );
+
+          persons[i] = div;
+        }
+
+        return persons;
+      }
+
+      function sendHandler() {
+        xhr.open("GET", "persons.json", true);
+        xhr.send();
+      }
+
+      function clearHandler() {
+        document.querySelector("#persons").innerHTML = "";
+      }
+
+      function init() {
+        document.querySelector("#send").addEventListener("click", sendHandler);
+        document
+          .querySelector("#clear")
+          .addEventListener("click", clearHandler);
+      }
+
+      window.addEventListener("load", init);
+    </script>
+    <style>
+      .person {
+        width: 200px;
+        border: 2px solid gray;
+        padding: 20px;
+        margin: 20px;
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>인물정보</h1>
+    <hr />
+
+    <button id="send">AJAX Go!</button>
+    <button id="clear">Clear!</button>
+
+    <div id="persons"></div>
+  </body>
+</html>

@@ -6,18 +6,7 @@
     <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
     <script>
-      /*
-        <ul class="ingredients">
-          <li>연어 500그램</li>
-          <li>잣 1 컵</li>
-          <li>버터 상추 2 컵</li>
-          <li>옐로 스쿼시(Yellow Squash, 호박의 한 종류) 1개</li>
-          <li>올리브 오일 1/2 컵</li>
-          <li>마늘 3 쪽</li>
-        </ul>
-      */
-
-      var items = [
+      var itemsGlobal = [
         "연어 500그램",
         "잣 1 컵",
         "버터 상추 2 컵",
@@ -26,12 +15,22 @@
         "마늘 3 쪽",
       ];
 
+      class ingredientsList extends React.Component {
+        render() {
+          return React.createElement(
+            "ul",
+            null,
+            this.props.items.map((ingredient, i) =>
+              React.createElement("li", { key: i }, ingredient)
+            )
+          );
+        }
+      }
+
       var dish = React.createElement(
-        "ul",
-        { className: "ingredients" },
-        items.map((ingredient, i) =>
-          React.createElement("li", { key: i }, ingredient)
-        )
+        ingredientsList,
+        { items: itemsGlobal },
+        null
       );
       console.log("dish", dish);
 

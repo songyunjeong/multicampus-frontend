@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document</title>
+    <meta charset="UTF-8" />
+    <script>
+      // 객체 구조 분해
+      var sandwich = {
+        bread: "더치 크런치",
+        meat: "참치",
+        cheese: "스위스",
+        toppings: ["상추", "토마토", "머스타드"],
+      };
+
+      var { bread, cheese } = sandwich;
+      // 여기서 bread, cheese는 변수임
+
+      console.log(bread, cheese);
+
+      bread = "마늘빵";
+      cheese = "파마산";
+
+      console.log(bread, cheese);
+      console.log(sandwich.bread, sandwich.cheese);
+    </script>
+  </head>
+  <body></body>
+</html>
