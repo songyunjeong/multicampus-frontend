@@ -11,39 +11,55 @@
           리액트를 이용하여 동적 화면 구성 기능을 구현하는 코드를 작성하세요.
       */
 
+      class Persons extends React.Component {
+        getPersonChild(person) {
+          let labels = ["이름", "성별", "나이", "분야"];
+          let personChild = [];
+          let i = 0;
+
+          for (let key in person) {
+            personChild.push(
+              React.createElement(
+                "h4",
+                { key: i },
+                `${labels[i]}: ${person[key]}`
+              )
+            );
+            i++;
+          }
+
+          return personChild;
+        }
+
+        render() {
+          return React.createElement(
+            "div",
+            { id: "persons" },
+            this.props.persons.map((person, i) =>
+              React.createElement(
+                "div",
+                { className: "person", key: i },
+                this.getPersonChild(person)
+              )
+            )
+          );
+        }
+      }
+
       var xhr = new XMLHttpRequest();
       xhr.addEventListener("readystatechange", ajaxHandler);
 
       function ajaxHandler() {
         if (xhr.readyState === 4 && xhr.status === 200) {
-          var personsChild = parsePersonJSON(xhr.responseText);
-          var persons = document.querySelector("#persons");
-
-          ReactDOM.render(personsChild, persons);
-        }
-      }
-
-      function parsePersonJSON(jsonStr) {
-        var persons = JSON.parse(jsonStr);
-
-        for (var i in persons) {
-          var content;
-
-          content = `이름: ${persons[i].name}`;
-          content += `성별: ${persons[i].gender}`;
-          content += `나이: ${persons[i].age}`;
-          content += `분야: ${persons[i].field}`;
-
-          var div = React.createElement(
-            "div",
-            { className: "person" },
-            React.createElement("h4", null, content)
+          var persons = React.createElement(
+            Persons,
+            { persons: JSON.parse(xhr.responseText) },
+            null
           );
+          var container = document.querySelector("#react-container");
 
-          persons[i] = div;
+          ReactDOM.render(persons, container);
         }
-
-        return persons;
       }
 
       function sendHandler() {
@@ -52,7 +68,12 @@
       }
 
       function clearHandler() {
-        document.querySelector("#persons").innerHTML = "";
+        var container = document.querySelector("#react-container");
+
+        ReactDOM.render(
+          React.createElement("div", { id: "persons" }, null),
+          container
+        );
       }
 
       function init() {
@@ -81,6 +102,6 @@
     <button id="send">AJAX Go!</button>
     <button id="clear">Clear!</button>
 
-    <div id="persons"></div>
+    <div id="react-container"></div>
   </body>
 </html>

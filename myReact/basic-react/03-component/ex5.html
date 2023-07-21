@@ -16,6 +16,7 @@
       ];
 
       function ingredientsList() {
+        // 함수에게 데이터를 넣어줄 방법이 필요하다. -> ex6.html 매개변수로 줘야한다.
         return React.createElement(
           "ul",
           null,
@@ -27,7 +28,7 @@
 
       var dish = React.createElement(
         ingredientsList,
-        { items: itemsGlobal }, // 함수는 객체에 직접 접근 할 수 없다. -> ex6.html 매개변수로 줘야한다.
+        { items: itemsGlobal }, // 함수의 props로 들어감
         null
       );
       console.log("dish", dish);

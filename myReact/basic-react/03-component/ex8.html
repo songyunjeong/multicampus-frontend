@@ -6,9 +6,11 @@
     <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
     <script>
+      // class형 컴포넌트
+
       // prettier-ignore
       class ingredientsList extends React.Component {
-        render() {
+        render() { // element를 반환해야 한다.
           return React.createElement("ul", null,
                   React.createElement("li", null, "연어 500그램"),
                   React.createElement("li", null, "잣 1 컵"),

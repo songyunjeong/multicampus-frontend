@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document</title>
+    <meta charset="UTF-8" />
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <script type="text/babel">
+      // babel 라이브러리를 가져온 후 type 속성 줘야함
+      const Header = ({ message }) => <h1>{message}</h1>; // JSX
+      // JSX를 Babel 인터프리터가 JavaScript로 바꿔줌
+
+      function init() {
+        let container = document.querySelector("#react-container");
+
+        ReactDOM.render(<Header message="안녕, 세상아" />, container);
+      }
+
+      window.addEventListener("load", init);
+    </script>
+  </head>
+  <body>
+    <div id="react-container"></div>
+  </body>
+</html>

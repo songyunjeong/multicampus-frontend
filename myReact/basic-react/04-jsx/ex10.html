@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document</title>
+    <meta charset="UTF-8" />
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <script type="text/babel">
+      let recipe = {
+        name: "Baked Salmon",
+        ingredients: [
+          "연어",
+          "잣",
+          "버터 상추",
+          "옐로 스쿼시(Yellow Squash, 호박의 한 종류)",
+          "올리브 오일",
+          "마늘",
+        ],
+        steps: [
+          "오븐을 360로 예열한다.",
+          "유리 베이킹 그릇에 올리브 오일을 두른다.",
+          "연어, 마늘, 잣을 그릇에 담는다.",
+          "븐에서 15분간 익힌다.",
+          "옐로 스쿼시를 추가하고 다시 30분간 오븐에서 익힌다.",
+          "오븐에서 그릇을 꺼내서 15분간 식힌다음에 상추를 곁들여서 내놓는다.",
+        ],
+      };
+
+      const Recipe = ({ name, ingredients, steps }) => (
+        <section id={name.toLowerCase().replace(/ /g, "-")}>
+          <h1>{name}</h1>
+          <ul className="ingredients">
+            {ingredients.map((ingredient, i) => (
+              <li key={i}>{ingredient}</li>
+            ))}
+          </ul>
+          <section className="instructions">
+            {steps.map((step, i) => (
+              <p key={i}>{step}</p>
+            ))}
+          </section>
+        </section>
+      );
+      // .toLowerCase(): 영어라면 작동함. 한글 일 땐 작동하지 않음.
+      // / /g: 정규 표현식, 슬래시 안에 있는 것을 정규 표현식 표현으로 인식함 => 즉 모든 공백을 -(대쉬)로 바꿔라는 의미
+
+      const Menu = ({ title, recipe }) => (
+        <article>
+          <header>
+            <h1>{title}</h1>
+          </header>
+          <div className="recipe">
+            <h3>
+              <Recipe
+                name={recipe.name}
+                ingredients={recipe.ingredients}
+                steps={recipe.steps}
+              />
+            </h3>
+          </div>
+        </article>
+      );
+
+      function init() {
+        let container = document.querySelector("#react-container");
+
+        ReactDOM.render(
+          <Menu title="맛있는 조리법" recipe={recipe} />,
+          container
+        );
+      }
+
+      window.addEventListener("load", init);
+    </script>
+  </head>
+  <body>
+    <div id="react-container"></div>
+  </body>
+</html>
