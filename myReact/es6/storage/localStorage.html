@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      /*
+        localStorage: 브라우저가 제공하는 영구 저장소 객체
+          . window 객체가 제공하는 속성
+          . Key와 Value의 쌍 형태로 데이터 저장
+          . Key 값은 문자열로 반드시 고유하여야 한다.
+          . Value 값은 문자열로 중복 값을 허용한다.
+
+          Key  |  Value
+          -------------
+
+          localStorage.setItem(key, value) => 스토리지에 새로운 항목의 값을 저장하거나 기존의 값을 변경할 수 있다.
+          localStorage.getItem(key)        => 스토리지에서 key에 해당하는 value 값을 문자열로 변환
+          localStorage.removeItem(key)     => 스토리지에서 key에 해당하는 항목을 제거한다.
+          localStorage.clear()             => 스토리지의 모든 항목을 제거한다. (사용 X)
+      */
+
+      let name, age, male, female;
+
+      function saveHandler() {
+        localStorage.setItem("name", name.value);
+        localStorage.setItem("age", age.value);
+
+        if (male.checked) {
+          localStorage.setItem("gender", "male");
+        } else {
+          localStorage.setItem("gender", "female");
+        }
+      }
+
+      function removeHandler() {
+        localStorage.removeItem("name");
+        localStorage.removeItem("age");
+        localStorage.removeItem("gender");
+
+        name.value = "";
+        age.value = "";
+        male.checked = true;
+        female.checked = false;
+      }
+
+      function init() {
+        name = document.querySelector("#name");
+        age = document.querySelector("#age");
+        male = document.querySelector("#male");
+        female = document.querySelector("#female");
+
+        if (localStorage.getItem("name")) {
+          name.value = localStorage.getItem("name");
+          age.value = localStorage.getItem("age");
+
+          if (
+            localStorage.getItem("gender") &&
+            localStorage.getItem("gender") === "male"
+          ) {
+            male.checked = true;
+            female.checked = false;
+          } else {
+            male.checked = false;
+            female.checked = true;
+          }
+        }
+
+        document.querySelector("#save").addEventListener("click", saveHandler);
+        document
+          .querySelector("#remove")
+          .addEventListener("click", removeHandler);
+      }
+
+      window.addEventListener("load", init);
+    </script>
+  </head>
+  <body>
+    <h1>사용자 정보</h1>
+    <hr />
+
+    <label for="name">이름</label>
+    <input type="text" id="name" />
+    <label for="age">나이</label>
+    <input type="number" id="age" min="10" max="100" step="1" />
+    <label for="male">남자</label>
+    <input type="radio" name="gender" id="male" checked />
+    <label for="female">여자</label>
+    <input type="radio" name="gender" id="female" />
+    <hr />
+
+    <button id="save">저장</button>
+    <button id="remove">삭제</button>
+  </body>
+</html>
